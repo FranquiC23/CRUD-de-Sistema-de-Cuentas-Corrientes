@@ -32,7 +32,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class TipoPrestamo extends JFrame {
-
 	private JPanel contentPane;
 	private JTextField txtCodigo;
 	private JTextField txtDescripcion;
@@ -458,7 +457,6 @@ public class TipoPrestamo extends JFrame {
 		});
 		btnSalir.setBounds(407, 58, 117, 25);
 		panel_operaciones.add(btnSalir);
-		
 		listar();
 	}
 	
