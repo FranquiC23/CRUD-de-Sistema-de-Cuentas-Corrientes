@@ -98,7 +98,6 @@ public class EstadoRegistro extends JFrame {
 	 */
 	void agregar() {
 		String codigo = (txtCodigo.getText());
-	
 		String descripcion = txtDescripcion.getText();
 		String estadoRegistro = txtEstadoRegistro.getText();
 		if (descripcion.equals("") || estadoRegistro.equals("")) {
@@ -185,7 +184,7 @@ public class EstadoRegistro extends JFrame {
 		if (filaSeleccionada == -1) {
 			JOptionPane.showMessageDialog(null, "Seleccione una fila");
 		}else {
-			String sql = "UPDATE ESTADO_REGISTRO SET EstRegEstReg='I' WHERE EstRegCod="+cod;
+			String sql = "UPDATE ESTADO_REGISTRO SET EstRegNom='Inactivo', EstRegEstReg='I' WHERE EstRegCod="+cod;
 			try {
 				cn = con.getConnection();
 				st = cn.createStatement();
@@ -217,7 +216,7 @@ public class EstadoRegistro extends JFrame {
 		if (filaSeleccionada == -1) {
 			JOptionPane.showMessageDialog(null, "Seleccione una fila");
 		}else {
-			String sql = "UPDATE ESTADO_REGISTRO SET EstRegEstReg='A' WHERE EstRegCod="+cod;
+			String sql = "UPDATE ESTADO_REGISTRO SET EstRegNom='Activo', EstRegEstReg='A' WHERE EstRegCod="+cod;
 			try {
 				cn = con.getConnection();
 				st = cn.createStatement();
@@ -296,6 +295,7 @@ public class EstadoRegistro extends JFrame {
 		
 		txtEstadoRegistro = new JTextField();
 		txtEstadoRegistro.setBounds(179, 77, 31, 19);
+		txtEstadoRegistro.setText("A");
 		panel_registro.add(txtEstadoRegistro);
 		txtEstadoRegistro.setColumns(10);
 		
