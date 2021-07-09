@@ -175,17 +175,14 @@ public class EstadoTrabajador extends JFrame {
 	 * INACTIVAR
 	 */
 	void inactivar() {
-		txtCodigo.setEditable(false);
 		int cod = Integer.parseInt(txtCodigo.getText());
-		txtDescripcion.setEditable(false);
-		txtEstadoRegistro.setEditable(false);
-		
+
 		int filaSeleccionada = dataTable.getSelectedRow();
 		
 		if (filaSeleccionada == -1) {
 			JOptionPane.showMessageDialog(null, "Seleccione una fila");
 		}else {
-			String sql = "UPDATE ESTADO_TRANAJADOR SET EstTraEstReg='I' WHERE EstTraCod="+cod;
+			String sql = "UPDATE ESTADO_TRABAJADOR SET EstTraNom='Inactivo', EstTraEstReg='I' WHERE EstTraCod="+cod;
 			try {
 				cn = con.getConnection();
 				st = cn.createStatement();
@@ -193,9 +190,6 @@ public class EstadoTrabajador extends JFrame {
 				JOptionPane.showMessageDialog(null, "Datos Inactivados");
 				limpiarTabla();
 				limpiarDatos();
-				txtCodigo.setEditable(true);
-				txtDescripcion.setEditable(true);
-				txtEstadoRegistro.setEditable(true);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -217,7 +211,7 @@ public class EstadoTrabajador extends JFrame {
 		if (filaSeleccionada == -1) {
 			JOptionPane.showMessageDialog(null, "Seleccione una fila");
 		}else {
-			String sql = "UPDATE ESTADO_TRABAJADOR SET EstTraEstReg='A' WHERE EstTraCod="+cod;
+			String sql = "UPDATE ESTADO_TRABAJADOR SET EstTraNom='Activo', EstTraEstReg='A' WHERE EstTraCod="+cod;
 			try {
 				cn = con.getConnection();
 				st = cn.createStatement();
@@ -296,6 +290,7 @@ public class EstadoTrabajador extends JFrame {
 		
 		txtEstadoRegistro = new JTextField();
 		txtEstadoRegistro.setBounds(179, 77, 31, 19);
+		txtEstadoRegistro.setText("A");
 		panel_registro.add(txtEstadoRegistro);
 		txtEstadoRegistro.setColumns(10);
 		
