@@ -37,11 +37,11 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
-		setTitle("DataBase Manager");
+		setTitle("Administrador de base de datos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 200);
 		contentPane = new JPanel();
-		contentPane.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Available Options", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(51, 51, 51)));
+		contentPane.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Tablas Referenciales", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(51, 51, 51)));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
@@ -106,6 +106,15 @@ public class MainWindow extends JFrame {
 		});
 		tipoTrabajador.setBounds(160, 50, 150, 25);
 		initial_panel.add(tipoTrabajador);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(WIDTH);
+			}
+		});
+		btnSalir.setBounds(314, 49, 150, 25);
+		initial_panel.add(btnSalir);
 
 
 
